@@ -25,8 +25,8 @@ h1 strong{
 }
 h2{
 	text-transform: uppercase;
-	line-height: 20px;
-	margin:  0;
+	/*line-height: 20px;*/
+	/*margin:  0;*/
 }
 h3{
 font-size: 18px;
@@ -38,7 +38,7 @@ h4{
 h5{
 	text-transform: uppercase;
 	font-weight: 700;
-	line-height: 20px;
+	/*line-height: 20px;*/
 }
 p{
 	font-family: 'Open Sans', sans-serif;
@@ -880,7 +880,7 @@ div.box_frame:first-child{
 
 box_contents {
     float:left;
-    width: 30%;
+    /*width: 30%;*/
     padding-bottom: 5%; /* = width for a 1:1 aspect ratio */
     margin:1.66%;
     background-color: white;
@@ -895,16 +895,17 @@ box_contents {
 .square {
     float:left;
     position: relative;
-    width: 30%;
-    padding-bottom: 18%; /* = width for a 1:1 aspect ratio */
+    /*width: 30%;*/
+    /*padding-bottom: 18%; /* = width for a 1:1 aspect ratio */
     margin:1.66%;
-    overflow:hidden;
+    /*overflow:hidden;*/
 }
 .squarebox {
     float:left;
     position: relative;
-    width: 75%;
-    padding-bottom: 80%; /* = width for a 1:1 aspect ratio */
+    /*width: 75%;*/
+		padding: 5% 5%;
+		padding-bottom: 5%; /* = width for a 1:1 aspect ratio */
     margin:10%;
     overflow:hidden;
 		background-color: lightgoldenrodyellow;
@@ -913,12 +914,27 @@ box_contents {
 		text-align: left;
 		border: black 2px solid;
 		font-size: medium;
+		/* change border to be inside the box */
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
 }
 .boxcontent {
-    position:absolute;
-    height:100%;
-    width:100%;
+    /*position:absolute;*/
+    /*height:100%;
+    width:100%;*/
     padding: 5% 5%;
+		padding-bottom: 5%; /* = width for a 1:1 aspect ratio */
+    margin:1.66%;
+    background-color: white;
+		border: 1px solid #898989;
+    border-radius: 11px;
+		text-align: center;
+		/* change border to be inside the box */
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+
 }
 .table{
     display:table;

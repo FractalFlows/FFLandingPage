@@ -12,4 +12,4 @@
 
 FROM meteorhacks/meteord:onbuild
 
-MAINTAINER Pierre-Elouan Rethore <pire@dtu.dk>
+MAINTAINER Pierre-Elouan Rethore <pe@retho.re>

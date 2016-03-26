@@ -70,8 +70,9 @@
          $(document).scroll(function() {
             scroll_start = $(this).scrollTop();
             if(scroll_start > offset.top) {
-                $('.navbar-default').css('background-color', 'rgb(255,255,255)');
-                $('.navbar-default').css('border-color', 'rgb(231,76,60)');
+                var alpha=Math.max(0.0, Math.min(0.8,(scroll_start-offset.top)/(10.0*offset.top)));
+                $('.navbar-default').css('background-color', `rgba(255,255,255, ${alpha})`);
+                // $('.navbar-default').css('border-color', 'rgb(231,76,60)');
              } else {
                 $('.navbar-default').css('background-color', 'transparent');
                 $('.navbar-default').css('border-color', 'rgba(231, 231, 231, 0)');
@@ -126,13 +127,12 @@
   <div id="tf-Problemdef">
       <br><br><br><br><br>
 
-      <div class="group">
-
-        <div class="left">
-          <box_contents class="squarebox">
-            <div class="boxcontent">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="squarebox">
+            <!-- <div class="boxcontent">
               <div class="table">
-                <div class="table-cell">
+                <div class="table-cell"> -->
                   <span style="color: #8b0000; font-weight: bold">knowledge bits</span>
                   are numerical bits, files,
                   containing simulation results, experimental results, detailed analysis,
@@ -142,13 +142,13 @@
                   hypothesis and methodologies. Knowledge bits are the hidden backbone, essentially the atomic
                   particles composing a scientific work, while the associated scientific
                   publication is merely its projection on a piece of (digital) paper.
-                </div>
+                <!-- </div>
               </div>
-            </div>
-          </box_contents>
+            </div> -->
+          </div>
         </div>
 
-          <div class="right">
+          <div class="container col-md-6">
               <div class="section-title">
                 <h2>The problem</h2>
                  <hr>
@@ -230,7 +230,7 @@
                   Anybody working on those knowledge bits in the meanwhile
                   would increase the reputation and reward (credit) of the chain of authors through smart contracts.
                 </p>
-          </div>
+        </div>
       </div>
         <hr width="100%">
   </div>
@@ -466,111 +466,57 @@
 </template> -->
 
 
+<template name="box">
+  <div class="col-md-4">
+    <div class="boxcontent">
+      <!-- <div class="table">
+        <div class="table-cell"> -->
+          <h3>{{title}}</h3>
+          <p>{{{text}}}</p>
+        <!-- </div>
+      </div> -->
+    </div>
+  </div>
+</template>
+
 <!-- take a tour story     ==========================================-->
 <template name="tf_tour_whattodo">
     <div id="tf-tour-tf_tour_whattodo">
         <br><br><br><br><br>
         <div class="text-center">
-            <h2><strong> WHAT CAN I DO WITH EMERGENCE?</strong></h2>
+            <h2>What can i do with emergence?</h2>
             <h3>We simply want you to spend less time looking and more time making</h3>
         </div>
 
         <div class="container">
+          <div class="row">
           <!-- 1st row */ -->
-          <box_contents class="square">
-            <div class="boxcontent">
-              <div class="table">
-                <div class="table-cell">
-                  <h3>Register knowledge bits</h3>
-                  <p>Register the knowledge bits used in an article OR register any related knowledge bits which could potentially be useful for that same article.</p>
-                </div>
-              </div>
-            </div>
-          </box_contents>
-          <box_contents class="square">
-            <div class="boxcontent">
-              <div class="table">
-                <div class="table-cell">
-                  <h3>Access knowledge bits</h3>
-                  <p>Be it a researcher, scientist, engineer or student you can search for an article by DOI number or keywords and access its registered knowledge bits on Emergence, for free.</p>
-                </div>
-              </div>
-            </div>
-          </box_contents>
-          <box_contents class="square">
-            <div class="boxcontent">
-              <div class="table">
-                <div class="table-cell">
-                  <h3>Raise issues & requests</h3>
-                  <p>If knowledge bits related to an article are not available, one can raise a request for others to register related knowledge bits.
-                  One can also raise issues about existing knowledge bits.</p>
-                </div>
-              </div>
-            </div>
-          </box_contents>
-          <box_contents class="square">
-            <div class="boxcontent">
-              <div class="table">
-                <div class="table-cell">
-                  <h3>External integrations</h3>
-                  <p>Emergence is integrated with <u>Github</u> and the
-                  <u>DOI</u> network (..and more to come). Integrations with external tools let you quickly see the activities happening on external
-                  webservices from Emergence.</p>
-                </div>
-              </div>
-            </div>
-          </box_contents>
-          <box_contents class="square">
-            <div class="boxcontent">
-              <div class="table">
-                <div class="table-cell">
-                  <h3>Register reproductions</h3>
-                  <p>Make an article significantly more impactful by reproducing or requesting others to reproduce the results in it. By doing so, one will have to show how they
-                  reproduced the results by registering their new knowledge bits on Emergence.</p>
-                </div>
-              </div>
-            </div>
-          </box_contents>
-          <box_contents class="square">
-            <div class="boxcontent">
-              <div class="table">
-                <div class="table-cell">
-                  <h3>Add relationships</h3>
-                  <p>Create meaningful relationships between existing
-                  knowledge bits accessible on other external web services
-                  (e.g. github, zenodo, dropbox, email, etc.) and Emergence.
-                </p>
-                </div>
-              </div>
-            </div>
-          </box_contents>
-          <box_contents class="square">
-            <div class="boxcontent">
-              <div class="table">
-                <div class="table-cell">
-                  <h3>Proof of authership</h3>
-                  <p>Register on Emergence any unfinished work such as partial simulation results or partial
-                    mathematical proofs without the need to wait for the final journal publication to be ready.
-                    Their work and authorship is indeed forever saved on the Blockchain in complete
-                    pseudo-anonymity.</p>
-                </div>
-              </div>
-            </div>
-          </box_contents>
-          <box_contents class="square">
-            <div class="boxcontent">
-              <div class="table">
-                <div class="table-cell">
-                  <h3>Increase your reputation</h3>
-                  <p>Register on Emergence unfinished knowledge bits and anybody working on those knowledge bits
-                    would increase the reputation and reward of the chain of authors through smart
-                    contracts. Keeping those knowledge bits for yourself until you have your paper accepted for publication
-                    will result in loss of reputation and revenue.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </box_contents>
+          {{>box title="Register knowledge bits"
+                 text="Register the knowledge bits used in an article OR register any related knowledge bits which could potentially be useful for that same article."}}
+
+          {{>box title="Access knowledge bits"
+                 text="Be it a researcher, scientist, engineer or student you can search for an article by DOI number or keywords and access its registered knowledge bits on Emergence, for free."}}
+
+          {{>box title="Raise issues & requests"
+                 text="If knowledge bits related to an article are not available, one can raise a request for others to register related knowledge bits. One can also raise issues about existing knowledge bits."}}
+          </div>
+          <div class="row">
+          {{>box title="External integrations"
+                 text="Emergence is integrated with <u>Github</u> and the <u>DOI</u> network (..and more to come). Integrations with external tools let you quickly see the activities happening on external webservices from Emergence."}}
+
+          {{>box title="Register reproductions"
+                 text="Make an article significantly more impactful by reproducing or requesting others to reproduce the results in it. By doing so, one will have to show how they reproduced the results by registering their new knowledge bits on Emergence."}}
+
+          {{>box title="Add relationships"
+                 text="Create meaningful relationships between existing knowledge bits accessible on other external web services (e.g. github, zenodo, dropbox, email, etc.) and Emergence."}}
+          </div>
+          <div class="row">
+          {{>box title="Proof of authorship"
+                 text="Register on Emergence any unfinished work such as partial simulation results or partial mathematical proofs without the need to wait for the final journal publication to be ready. Their work and authorship is indeed forever saved on the Blockchain in complete pseudo-anonymity."}}
+
+          {{>box title="Increase your reputation"
+                 text="Register on Emergence unfinished knowledge bits and anybody working on those knowledge bits would increase the reputation and reward of the chain of authors through smart contracts. Keeping those knowledge bits for yourself until you have your paper accepted for publication will result in loss of reputation and revenue."}}
+          </div>
         </div>
         <hr width="100%">
     </div>
