@@ -1,6 +1,6 @@
 # http://fractalflows.com website repository
-This repo contains all the necessary files to build and deploy the website.
-The website is based on Meteor,a javascript webframework, and Bootstrap, a shiny template from tweeter.
+This repo contains all the necessary files to build and deploy the fractalflows.com landing page.
+The website is based on Meteor, a javascript webframework and Bootstrap, a shiny template from tweeter.
 
 
 ## How to run this thing?
